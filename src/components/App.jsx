@@ -21,15 +21,12 @@ export default function App() {
 
       
 
-    contacts.forEach(contact => {
+    const inContacts = contacts.find(contact => contact.name.toLowerCase() === normalizedName);
 
-      if (contact.name.toString().toLowerCase() === normalizedName) {
-        alert(`${name} is already in contacts`);
-
-        return;
-      }
-      
-    });
+     if (inContacts) {
+      alert(`${name} is already in contacts`);
+      return;
+    }
 
     const contact = {
       id: nanoid(),
